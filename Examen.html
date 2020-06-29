@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Evaluación</title>
+    </head>
+    <script>
+        window.addEventListener('load', inicio, false);
+
+        function inicio() {
+            document.getElementById('file').addEventListener('change', cargar, false);               
+        }
+
+        function cargar(archivo) {
+            document.getElementById('datos').innerHTML='Nombre del Archivo: '+archivo.target.files[0].name+'<br>';
+
+            var arch=new FileReader();
+            arch.addEventListener('load',leer,false);
+            arch.readAsText(archivo.target.files[0]);
+        }
+        
+        function leer(ev) {
+            document.getElementById('Texto').value=ev.target.result;
+        }
+    </script>
+    </head>
+
+    <style type="text/css">
+        hr{width: 50%;}
+
+        h1{
+            font-style: italic;
+            color: magenta;
+        }
+        div{
+            block-size: 50px;
+        }
+        #file{
+            background-color: beige;
+            font-style: italic;
+            block-size: 50px;
+            border-radius: 10px;
+        }
+        #Texto{
+            background-color: beige;
+        }
+            
+      </style>
+
+    <body>
+        <H1>Visualizando Archivos CSV Adjuntando</H1>
+        
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="files">Importar:</label>
+                <input type="file" id="file" class="form-control" accept=".csv" required />
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit-file" class="btn btn-primary">Recargar</button>
+            </div>
+        </form>
+
+        <textarea rows="10" cols="80" id="Texto"></textarea>
+        <br>
+        <p id="datos">
+        
+    </body>
+</html>
