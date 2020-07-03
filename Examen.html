@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta tittle="author" content="Felipe de Jesus Dominguez Hernandez">
+        <meta title="Description" content="Evaluacion de aplicacion web">
+        <meta name="keys" content="dropdown, web application, CSV">
         <title>Evaluación</title>
     </head>
     <script>
@@ -28,7 +31,11 @@
 
     <style type="text/css">
         hr{width: 50%;}
-
+        label{
+            font-family: cursive;
+            color: darkcyan;
+            font-size: large;
+        }
         h1{
             font-style: italic;
             color: magenta;
@@ -39,8 +46,14 @@
         #file{
             background-color: beige;
             font-style: italic;
-            block-size: 50px;
-            border-radius: 10px;
+            block-size: 70px;
+            border-radius: 5px;
+            border: 5px blueviolet dotted;
+        }
+        .form-group{
+            padding: 30px;
+            font-size: 15px;
+            block-size: 70px;
         }
         #Texto{
             background-color: beige;
@@ -52,18 +65,21 @@
         <H1>Visualizando Archivos CSV Adjuntando</H1>
         
         <form class="form-inline">
+            <label for="files">Arrastre el Archivo dentro del recuadro o Seleccione un Archivo</label>
+            
             <div class="form-group">
-                <label for="files">Importar:</label>
-                <input type="file" id="file" class="form-control" accept=".csv" required />
+                <input type="file" id="file" class="form-control" accept=".csv" required/>
             </div>
+
             <div class="form-group">
+                <input type="button" id="btnImport" value="Visualizar">
                 <button type="submit" id="submit-file" class="btn btn-primary">Recargar</button>
             </div>
+
         </form>
 
         <textarea rows="10" cols="80" id="Texto"></textarea>
         <br>
         <p id="datos">
-        
     </body>
 </html>
